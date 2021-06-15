@@ -1,0 +1,15 @@
+dpname: mongo-deployment
+name: mongodb
+image: mongo
+tag: latest
+replicas: 1
+service: 
+  name: mongo-service
+  port: 27017
+
+
+config_secret:
+  username: dXNlcm5hbWU=
+  password: cGFzc3dvcmQ=
+  service: 
+    name: mongo-service

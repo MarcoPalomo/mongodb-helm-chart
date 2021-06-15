@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mongdb
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: db
+    server: {{ .Values.spec.destination.server}}
+  project: default
+  source:
+    path: mongodb
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevison: {{ .Values.spec.source.targetRevision }}
